@@ -1,13 +1,14 @@
 from flask import Blueprint, render_template, request
+from website import ploting, value
 
 views = Blueprint('views',__name__)
 
 @views.route('/',methods = ['GET','POST'])
 def home():
+    global funkcja
+    funkcja = "2*x^2-x+1"
     if request.method == 'POST':
-        global funkcja
         funkcja = request.form.get("funkcja")
-
     if '+' in request.form:
         funkcja += '+'
         return render_template('Home.html',funkcja = funkcja)
@@ -47,5 +48,9 @@ def home():
     elif ')' in request.form:
         funkcja += ')'
         return render_template('Home.html',funkcja = funkcja)
-    else:
-        return render_template('Home.html')
+    elif 'draw' in request.form:
+        print(funkcja)
+        wartosc = ploting(-3,3,10,funkcja)
+        print(wartosc)
+        return render_template('Home.html',funkcja = funkcja)
+    return render_template('Home.html',funkcja=funkcja)

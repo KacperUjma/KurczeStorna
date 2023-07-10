@@ -1,4 +1,18 @@
-h1{
-    text-align: center;
-    background-color: red;
+.container{
+    background-color: rgb(145, 130, 212);
 }
+
+.calculaotr_window{
+    width: 50%;
+    height: 20vw;
+    background-color: green;
+}
+button{
+    display: flex;
+}
+.wh{
+    width: 375px;
+}
+body {
+    background-color: rgb(52, 107, 197);
+ }

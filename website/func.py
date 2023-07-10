@@ -34,7 +34,8 @@ def ploting(a, b, n, f):
     plt.bar(x_hist, y_hist, width=(b - a) / n)
     plt.plot(x, y, color="red")
     plt.grid(True)
-    plt.show()
+    plt.savefig("Technologie Informacyjne\Strona\Strona_Mazi\website\static\\function.png")
     return calka
 
-# ploting(-pi/2, pi/2, 10, f:='sin(x^2)-tan(x)')
+if __name__ == "__main__":
+    ploting(-pi/2, pi/2, 10, f:='sin(x^2)')
