@@ -19,7 +19,7 @@ def value(f, x_value):
         return None
     for x in symbols:
         if x not in symbols:
-            return KeyError("Zle wpisany ciag znakow")
+            return None
     f = f.replace('^', '**')
     f = f.replace('ctan', '1/tan')
     x = x_value
@@ -28,6 +28,8 @@ def value(f, x_value):
     return value
 
 def ploting(a, b, n, f):
+    if a>=b:
+        return None 
     x = np.linspace(a, b, 10**6)
     y = np.vectorize(value)(f, x)
     sections = np.linspace(a, b, n + 1)

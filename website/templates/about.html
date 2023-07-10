@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Całka</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-image: url(/static/compute-ea4c57a4.png);
+        }
+
+        .container {
+            background-color: lightcyan;
+        }
+        #math-equation{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col mt-3">
+                <h1>O całce Reimana:</h1> 
+                Wstęp teoretyczny:<br>
+                Całka Riemanna została wprowadzona przez niemieckiego matematyka Bernharda Riemanna w XIX wieku i stanowi podstawę całkowania funkcji ograniczonych na przedziałach rzeczywistych. Główną ideą całki Riemanna jest przybliżenie pola powierzchni między wykresem funkcji a osią x za pomocą odpowiedniego podziału przedziału i sumy odpowiednio dobranych prostokątów.<br>
+                Podstawowe elementy całki Riemanna obejmują:<br>
+                Przedział całkowania: Jest to określony odcinek na osi x, na którym obliczamy całkę. Przedział ten definiuje granice dolną i górną, czyli odpowiednio początek i koniec przedziału.<br>
+                Podział przedziału: Przedział całkowania dzielimy na niewielkie podprzedziały. Każdy podprzedział ma swój punkt wewnętrzny, który jest wybierany do obliczeń całkowych.<br>
+                Funkcja całkowana: Jest to funkcja, której wartość całkujemy na danym przedziale. Może to być dowolna funkcja spełniająca pewne warunki, na przykład funkcja ciągła lub ograniczona.<br>
+                Aproksymacja: Aby obliczyć wartość całki Riemanna, stosujemy sumowanie wartości funkcji na poszczególnych podprzedziałach pomnożonych przez szerokość tych podprzedziałów. Im więcej podprzedziałów i im mniejsza ich szerokość, tym dokładniejsze będzie przybliżenie wartości całki.<br>
+                <p><div id="math-equation">
+                    \(\int_{a}^{b}f(x)\,dx=\sum_{n=1}^{\infty} f(x_n) \cdot \Delta x_{n}\)
+                </div></p>
+                <p>
+                    Gdzie \(\Delta x_n\) to długość przedziału, a \(f(x_n)\) to pewna wartość funkcji na tym przedziale
+                </p>
+                <a class="btn btn-dark mt-5 mb-3" href="/">Powrót na stronę główną</a>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -5,7 +5,7 @@ auth = Blueprint('auth',__name__)
 
 @auth.route('/about')
 def about():
-    return "about"
+    return render_template("about.html")
 
 @auth.route('/authors')
 def authors():
@@ -13,4 +13,4 @@ def authors():
 
 @auth.route('/project')
 def project():
-    return "project"
+    return render_template("project.html")

@@ -12,16 +12,16 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     |<style>
         body,html{
-            background-image:url(/compute-ea4c57a4.png);
+            background-image:url(/static/compute-ea4c57a4.png);
         }
         .container {
-            background-color: #668aff;
+            background-color: #b9ad75;
         }
-
+        
         .calculaotr_window {
             width: 50%;
             height: 23vw;
-            background-color: #3363ff;
+            background-color: #565a67;
             display: flex;
         }
 
@@ -31,7 +31,7 @@
 
         .submit_panel {
             width: 50%;
-            background-color: #1a4fff;
+            background-color: #a8abb5;
             text-align: center;
 
         }
@@ -53,7 +53,7 @@
         }
         .range_window{
             width: 50%;
-            background-color: rebeccapurple;
+            background-color: #565a67;
             
         }
         .result{
@@ -74,8 +74,12 @@
             background-color: bisque;
            
        }
+       #result{
+        font-size: 25px;
+        text-align: center;
+       }
     </style>
-    <title>Document</title>
+    <title>Całka Riemanna</title>
 </head>
 
 <body>
@@ -102,7 +106,7 @@
                 </nav></div>
             <div class="row">
                 <div class="col text-center">
-                    <h1>Oliczanie całki</h1>
+                    <h1>Obliczanie całki w sensie Riemanna</h1>
                 </div>
             </div>
             <div class="row">
@@ -131,6 +135,7 @@
                         </div>
                         <div class="row">
                             <div class="col-3 text-center mt-3"> <button type="submit" name="x" class="btn btn-dark">x</button></div>
+                            <div class="col-3 text-center mt-3"> <button type="submit" name="back" class="btn btn-dark">back</button></div>
                         </div>
                     </div>
                     <div class="submit_panel ms-3 row">
@@ -138,9 +143,9 @@
                             <h3>Przedział</h3>
                         </div>
 
-                        <div class="col-4"><label>Początek<input type="number" class="small_input_wh" name="a"></label></div>
-                        <div class="col-4"><label>Koniec<input type="number" class="small_input_wh" name="b"></label></div>
-                        <div class="col-4"><label>n<input type="number" class="small_input_wh" wid="35px" name="n"></label></div>
+                        <div class="col-4"><label>Początek<input class="small_input_wh" name="a" value="{{a}}" methods="POST"></label></div>
+                        <div class="col-4"><label>Koniec<input class="small_input_wh" name="b" value="{{b}}" methods="POST"></label></div>
+                        <div class="col-4"><label>n<input class="small_input_wh" name="n" value="{{n}}" methods="POST"></label></div>
                         <div class="col-6"><button class="sub btn btn-dark" type="submit" name="clear">Wyczyść</button></div>
                         <div class="col-6"><button class="sub btn btn-dark" type="submit" name="draw">Oblicz</button></div>
 
@@ -149,10 +154,10 @@
 
                 <div class="range_window">
                         <div class="row">
-                            <label for="customRange2" class="form-label col-12 text-center mt-3"><h3>Wykres</h3></label>>
+                            <label for="customRange2" class="form-label col-12 text-center mt-3"><h3>Wykres</h3></label>
                         </div>
-                <div class="result mt-3"></div>
-                wynik<input>
+                <div ><img src="{{plot}}" alt="Obrazek" ></div>
+                <div id="result">Wynik: <input class="small_input_wh" name="result" value="{{result}}" methods="POST" readonly></div>
                 </div>
 
             </div>
@@ -160,4 +165,4 @@
     </div>
 </body>
 
-</html>
+</html> 
