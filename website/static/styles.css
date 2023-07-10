@@ -1,17 +1,60 @@
-.container{
+.container {
     background-color: rgb(145, 130, 212);
 }
-.calculaotr_window{
+
+.calculaotr_window {
     width: 50%;
-    height: 20vw;
-    background-color: rgb(137, 165, 37);
-}
-button{
+    height: 23vw;
+    background-color: green;
     display: flex;
 }
-.wh{
-    width: 375px;
+
+.calculator {
+    width: 50%;
 }
-body {
-    background-color: rgb(52, 107, 197);
+
+.submit_panel {
+    width: 50%;
+    background-color: saddlebrown;
+    text-align: center;
+
+}
+
+button {
+    display: flex;
+}
+
+.input_wh {
+    width: 275px;
+}
+
+.small_input_wh {
+    width: 100px;
+}
+
+label {
+    font-weight: 700;
+}
+.range_window{
+    width: 50%;
+    background-color: rebeccapurple;
+    
+}
+.result{
+    background-color: wheat;
+    width: 75%;
+    height: 65%;
+    margin: auto;
+}
+.navbar-nav{
+    margin: auto;
+    display: flex;
+}
+.nav-item{
+    text-decoration: none;
+    color:Black
+}
+.nav-item:hover{
+    background-color: bisque;
+   
 }

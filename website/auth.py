@@ -1,4 +1,5 @@
 from flask import Blueprint
+from flask import render_template
 
 auth = Blueprint('auth',__name__)
 
@@ -8,7 +9,7 @@ def about():
 
 @auth.route('/authors')
 def authors():
-    return "authors"
+    return render_template('authors.html')
 
 @auth.route('/project')
 def project():

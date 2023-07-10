@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="stylesheet" href="static\styles.css"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     |<style>
@@ -48,10 +48,6 @@
         label {
             font-weight: 700;
         }
-
-        form {
-            display: none;
-        }
         .range_window{
             width: 50%;
             background-color: rebeccapurple;
@@ -81,90 +77,86 @@
 
 <body>
     <div class="container">
-        <div class="row">
-            <nav class="navbar navbar-expand bg-dark">
-
-            <div class="container-fluid">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link 1</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link 2</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Link 3</a>
-                </li>
-              </ul>
-            </div>
-          
-          </nav></div>
-        <div class="row">
-            <div class="col text-center">
-                <h1>Oliczanie całki</h1>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col calculaotr_window ">
-                <div class="calculator">
-                    <h3 class="text-center">Funkcja</h3>
-                    <div class="col m-3 text-center"><label><input class="input_wh" name="olbiczenie"
-                                methods="POST"></label>
+        <form method="post">
+            <div class="row">
+                <nav class="navbar navbar-expand bg-dark">
+                    <div class="container-fluid">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Home</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="authors">O nas</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="project">Projekt</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="about">Całka Riemanna</a>
+                        </li>
+                    </ul>
                     </div>
-                    <div class="row">
-                        <div class="col-3 text-center mt-3"> <button type="button" class="btn btn-dark">+</button></div>
-                        <div class="col-3 text-center mt-3"> <button type="button" class="btn btn-dark">-</button></div>
-                        <div class="col-3 text-center mt-3"> <button type="button" class="btn btn-dark">*</button></div>
-                        <div class="col-3 text-center mt-3"> <button type="button" class="btn btn-dark">/</button></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-3 text-center mt-3"> <button type="button" class="btn btn-dark">^</button></div>
-                        <div class="col-3 text-center mt-3"> <button type="button" class="btn btn-dark">sqrt</button>
-                        </div>
-                        <div class="col-3 text-center mt-3"> <button type="button" class="btn btn-dark">(</button></div>
-                        <div class="col-3 text-center mt-3"> <button type="button" class="btn btn-dark">)</button></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-3 text-center mt-3"> <button type="button" class="btn btn-dark">sin</button>
-                        </div>
-                        <div class="col-3 text-center mt-3"> <button type="button" class="btn btn-dark">cos</button>
-                        </div>
-                        <div class="col-3 text-center mt-3"> <button type="button" class="btn btn-dark">tg</button>
-                        </div>
-                        <div class="col-3 text-center mt-3"> <button type="button" class="btn btn-dark">ctg</button>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-3 text-center mt-3"> <button type="button" class="btn btn-dark">x</button></div>
-                    </div>
-                </div>
-                <div class="submit_panel ms-3 row">
-                    <div class="col-12" style="height: 12px;">
-                        <h3>Przedział</h3>
-                    </div>
-
-                    <div class="col-6"><label>Początek<input type="number" class="small_input_wh"></label></div>
-                    <div class="col-6"><label>koniec<input type="number" class="small_input_wh"></label></div>
-                    <div class="col-6"><button class="sub btn btn-dark">Wyczyść</button></div>
-                    <div class="col-6"><button class="sub btn btn-dark">Oblicz</button></div>
-
+                </nav></div>
+            <div class="row">
+                <div class="col text-center">
+                    <h1>Oliczanie całki</h1>
                 </div>
             </div>
-
-            <div class="range_window">
-                    <div class="row">
-                        <label for="customRange2" class="form-label col-12 text-center mt-3"><h3>Ustaw podział przedziału</h3></label>
-                        <div class="col-10"><input type="range" class="form-range" min="1" max="10000" id="customRange2" value="range" name="slider"></div>
-                        <div class="col-2"><input style="width: 35px;"></div>
+            <div class="row">
+                <div class="col calculaotr_window ">
+                    <div class="calculator">
+                        <h3 class="text-center">Funkcja</h3>
+                        <div class="col m-3 text-center"><label><input class="input_wh" name="funkcja" value='{{funkcja}}' methods="POST"></label>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 text-center mt-3"> <button type="submit" name="+" class="btn btn-dark">+</button></div>
+                            <div class="col-3 text-center mt-3"> <button type="submit" name="-" class="btn btn-dark">-</button></div>
+                            <div class="col-3 text-center mt-3"> <button type="submit" name="*" class="btn btn-dark">*</button></div>
+                            <div class="col-3 text-center mt-3"> <button type="submit" name="/" class="btn btn-dark">/</button></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 text-center mt-3"> <button type="submit" name="^" class="btn btn-dark">^</button></div>
+                            <div class="col-3 text-center mt-3"> <button type="submit" name="sqrt" class="btn btn-dark">sqrt</button></div>
+                            <div class="col-3 text-center mt-3"> <button type="submit" name="(" class="btn btn-dark">(</button></div>
+                            <div class="col-3 text-center mt-3"> <button type="submit" name=")" class="btn btn-dark">)</button></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 text-center mt-3"> <button type="submit" name="sin" class="btn btn-dark">sin</button></div>
+                            <div class="col-3 text-center mt-3"> <button type="submit" name="cos" class="btn btn-dark">cos</button></div>
+                            <div class="col-3 text-center mt-3"> <button type="submit" name="tan" class="btn btn-dark">tan</button></div>
+                            <div class="col-3 text-center mt-3"> <button type="submit" name="ctan" class="btn btn-dark">ctan</button></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 text-center mt-3"> <button type="submit" name="x" class="btn btn-dark">x</button></div>
+                        </div>
                     </div>
-               <div class="result mt-3"></div>
-               wynik<input>
+                    <div class="submit_panel ms-3 row">
+                        <div class="col-12" style="height: 12px;">
+                            <h3>Przedział</h3>
+                        </div>
 
+                        <div class="col-6"><label>Początek<input type="number" class="small_input_wh" name="a"></label></div>
+                        <div class="col-6"><label>koniec<input type="number" class="small_input_wh" name="b"></label></div>
+                        <div class="col-6"><button class="sub btn btn-dark" type="submit" name="clear">Wyczyść</button></div>
+                        <div class="col-6"><button class="sub btn btn-dark" type="submit" name="calc">Oblicz</button></div>
+
+                    </div>
+                </div>
+
+                <div class="range_window">
+                        <div class="row">
+                            <label for="customRange2" class="form-label col-12 text-center mt-3"><h3>Ustaw podział przedziału</h3></label>
+                            <div class="col-10"><input type="range" class="form-range" min="1" max="10000" id="customRange2" value="range" name="n"></div>
+                            <div class="col-2"><input style="width: 35px;" ></div>
+                        </div>
+                <div class="result mt-3"></div>
+                wynik<input>
+
+
+                </div>
 
             </div>
-
-        </div>
+        </form>
     </div>
 </body>
 
