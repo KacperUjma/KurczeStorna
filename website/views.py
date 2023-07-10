@@ -12,8 +12,6 @@ views = Blueprint('views',__name__)
 
 symbols = ['x', '+', '-', '*', '/', '^', 'sqrt', '(', ')', 'sin', 'cos', 'tg', 'ctg']
 def value(f, x_value):
-    if f is None:
-        return None
     for x in symbols:
         if x not in symbols:
             return KeyError("Zle wpisany ciag znakow")
@@ -27,6 +25,7 @@ def value(f, x_value):
 def ploting(a, b, n, f):
     x = np.linspace(a, b, 10*5)
     y = np.vectorize(value)(f, x)
+    calka = 0
     sections = np.linspace(a, b, n + 1)
     sec = []
     x_hist = []
@@ -39,7 +38,8 @@ def ploting(a, b, n, f):
             y_hist.append(value(f, (d + c) / 2))
         else:
             pass
-    calka = sum(y_hist)
+    for i in range(len(y_hist)):
+        calka += y_hist[i]*((b-a)/n)
     plt.bar(x_hist, y_hist, width=(b-a)/n)
     plt.plot(x, y, color="red")
     plt.grid(True)
@@ -52,52 +52,53 @@ def home():
     funkcja = "2*x^2-x+1"
     if request.method == 'POST':
         funkcja = request.form.get("funkcja")
-        n = request.form.get("slider")
+        n = int(request.form.get("n"))
+        if n <= 0:
+            n=1
         print(n)
     if '+' in request.form:
         funkcja += '+'
-        return render_template('main.html',funkcja = funkcja)
+        return render_template('main.html',funkcja = funkcja,n=n)
     elif '-' in request.form:
         funkcja += '-'
-        return render_template('main.html',funkcja = funkcja)
+        return render_template('main.html',funkcja = funkcja,n=n)
     elif '*' in request.form:
         funkcja += '*'
-        return render_template('main.html',funkcja = funkcja)
+        return render_template('main.html',funkcja = funkcja,n=n)
     elif '/' in request.form:
         funkcja += '/'
-        return render_template('main.html',funkcja = funkcja)
+        return render_template('main.html',funkcja = funkcja,n=n)
     elif 'sqrt' in request.form:
         funkcja += 'sqrt'
-        return render_template('main.html',funkcja = funkcja)
+        return render_template('main.html',funkcja = funkcja,n=n)
     elif '^' in request.form:
         funkcja += '^'
-        return render_template('main.html',funkcja = funkcja)
+        return render_template('main.html',funkcja = funkcja,n=n)
     elif 'sin' in request.form:
         funkcja += 'sin'
-        return render_template('main.html',funkcja = funkcja)
+        return render_template('main.html',funkcja = funkcja,n=n)
     elif 'cos' in request.form:
         funkcja += 'cos'
-        return render_template('main.html',funkcja = funkcja)
+        return render_template('main.html',funkcja = funkcja,n=n)
     elif 'tan' in request.form:
         funkcja += 'tan'
-        return render_template('main.html',funkcja = funkcja)
+        return render_template('main.html',funkcja = funkcja,n=n)
     elif 'ctan' in request.form:
         funkcja += 'ctan'
-        return render_template('main.html',funkcja = funkcja)
+        return render_template('main.html',funkcja = funkcja,n=n)
     elif 'x' in request.form:
         funkcja += 'x'
-        return render_template('main.html',funkcja = funkcja)
+        return render_template('main.html',funkcja = funkcja,n=n)
     elif '(' in request.form:
         funkcja += '('
-        return render_template('main.html',funkcja = funkcja)
+        return render_template('main.html',funkcja = funkcja,n=n)
     elif ')' in request.form:
         funkcja += ')'
-        return render_template('main.html',funkcja = funkcja)
+        return render_template('main.html',funkcja = funkcja,n=n)
     elif 'draw' in request.form:
-        print(funkcja)
-        print(ploting(0.01,100,1000,funkcja))
-        return render_template('main.html',funkcja = funkcja)
+        print(ploting(-2,2,100,funkcja))
+        return render_template('main.html',funkcja = funkcja,n=n)
     elif 'clear' in request.form:
         funkcja = ""
-        return render_template('main.html',funkcja = funkcja)
+        return render_template('main.html',funkcja = funkcja,n=n)
     return render_template('main.html',funkcja=funkcja)
