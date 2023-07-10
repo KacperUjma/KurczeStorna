@@ -49,4 +49,4 @@ def ploting(a, b, n, f):
     return calka
 
 if __name__ == "__main__":
-    ploting(-pi/2, pi/2, 10, f:='cos(x)')
+    ploting(-pi/2, pi/2, 10, f:='cos(x^2)')
