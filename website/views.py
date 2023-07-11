@@ -6,7 +6,7 @@ import numpy as np
 from PIL import Image
 matplotlib.use('agg')
 
-
+global plot
 views = Blueprint('views',__name__)
 
 symbols = ['x', '+', '-', '*', '/', '^', 'sqrt', '(', ')', 'sin', 'cos', 'tg', 'ctg']
@@ -18,18 +18,23 @@ def value(f, x_value):
     f = f.replace('ctan', '1/tan')
     x = x_value
     try: value = eval(f)
-    except: value = 0
+    except: value = "Błąd"
     return value
 
 def ploting(a, b, n, f):
     x = np.linspace(a, b, 10*5)
     y = np.vectorize(value)(f, x)
+    plt.clf()
+    for i in y:
+        if i =="Błąd":
+            plt.plot()
+            plt.savefig("Technologie Informacyjne\Strona\website\static\\function.png")
+            return "Błąd"
     calka = 0
     sections = np.linspace(a, b, n + 1)
     sec = []
     x_hist = []
     y_hist = []
-    plt.clf()
     for i in range(len(sections)):
         if i < len(sections) - 1:
             sec.append([c := sections[i], d := sections[i + 1]])
@@ -42,7 +47,7 @@ def ploting(a, b, n, f):
     plt.bar(x_hist, y_hist, width=(b-a)/n)
     plt.plot(x, y, color="red")
     plt.grid(True)
-    plt.savefig("Technologie Informacyjne\Strona\Strona_Mazi\website\static\\function.png")
+    plt.savefig("Technologie Informacyjne\Strona\website\static\\function.png")
     return round(calka,5)
 
 @views.route('/',methods = ['GET','POST'])
